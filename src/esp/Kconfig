@@ -1,0 +1,44 @@
+# Kconfig settings for ESP processors
+
+if MACH_ESP
+
+config ESP32_SELECT
+    bool
+    default y
+    select HAVE_GPIO
+    select HAVE_GPIO_ADC
+    select HAVE_GPIO_SPI
+    select HAVE_GPIO_I2C
+    select HAVE_GPIO_HARD_PWM
+    select HAVE_GPIO_BITBANGING
+    select HAVE_STRICT_TIMING
+
+config BOARD_DIRECTORY
+    string
+    default "esp"
+
+choice
+    prompt "Processor model"
+    config MACH_esp32
+        bool "esp32"
+    config MACH_esp32s2
+        bool "esp32s2"
+    config MACH_esp32c3
+        bool "esp32c3"
+    config MACH_esp32s3
+        bool "esp32s3"
+    config MACH_esp32h2
+        bool "esp32h2"
+
+endchoice
+
+config MCU
+    string
+    default "esp32" if MACH_esp32
+    default "esp32s2" if MACH_esp32s2
+    default "esp32c3" if MACH_esp32c3
+    default "esp32s3" if MACH_esp32s3
+    default "esp32h2" if MACH_esp32h2
+
+endif
+

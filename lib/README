@@ -107,3 +107,8 @@ has been modfied to enable the US code page (437) and enable label
 support.  The file "diskio.c" in the original archive is not included
 as it is only serves as an example for how to implement the media api
 callbacks.
+
+The ESP directory contains code from:
+  https://github.com/espressif/esp-idf/ (commit 5c33570524118873f7bd32490c7a0442fede4bf8)
+The code is linked via a git submodule. To change it simply update the mentioned
+commit via git submodule CLI.
